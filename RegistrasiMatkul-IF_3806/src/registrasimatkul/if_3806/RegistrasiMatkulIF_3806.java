@@ -9,13 +9,93 @@ package registrasimatkul.if_3806;
  *
  * @author USER
  */
-public class RegistrasiMatkulIF_3806 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+public class Matakuliah{
+	
+	private String nama;
+	private int sks;
+	private long kodeMatkul;
+	
+	public Matakuliah(String nama, int sks, long kodeMatkul){
+		this.nama=nama;
+		this.sks=sks;
+		this.kodeMatkul=kodeMatkul;
+	}
+	
+	public void setNama(String nama){
+		this.nama=nama;
+	}
+	
+	public String getNama(){
+		return nama;
+	}
+	
+	public void setSks(int sks){
+		this.sks=sks;
+	}
+	
+	public int getSks(){
+		return sks;
+	}
+	
+	public void setKodeMatkul(long kodeMatkul){
+		this.kodeMatkul=kodeMatkul;
+	}
+	
+	public long getKodeMatkul(){
+		return kodeMatkul;
+	}
 }
+
+public class Kelas {
+	private  Matakuliah[] matakuliah= new Matakuliah[10];
+	private Dosen[] dosen= new Dosen[10];
+	private long idKelas;
+	private int numDosen=0;
+	private int numMatkul=0;
+	
+	public void setDosen(Dosen d){
+		if(numDosen<9){
+			d[numDosen]=dosen;
+		}
+		numDosen++;
+	}
+	
+	public void addMatkul(Matakuliah matakuliah){
+		if(numMatkul < 9){
+			this.matakuliah[numMatkul]=matakuliah;
+			
+		}
+		numMatkul++;
+	}
+	
+	public void setIdKelas(long idKelas){
+		this.idKelas=idKelas;
+	}
+	
+	public long getIdKelas(){
+		return idKelas;
+	}
+	
+	public void deleteDosen(Dosen d){
+		if(numDosen > 0){
+			d[numDosen]=null;
+			
+		}
+		else{
+			System.out.println("Dosen kosong");
+		}
+		numDosen--;
+	}
+	
+	public void deleteMatkul(Matakuliah matakuliah){
+		if(numMatkul > 0){
+			this.matakuliah[numMatkul]=null;
+		}
+		else{
+			System.out.println("Matakuliah kosong");
+		}
+		numMatkul--;
+	}
+}
+
